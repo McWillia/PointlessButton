@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+    <meta charset="UTF-8">
+    <title>The Pointless Button</title>
+    <script src="lib/jquery-3.2.1.min.js"></script>
+    <script src="lib/moment.js"></script>
+    <script src="js/controller.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/taskman.css"/>
+</head>
+<body>
+
+
+<div class="grid-container">
+    <div class="item" id="item1">1</div>
+    <div class="item" id="item2">
+        <p id="Points">Points: 0 </p>
+        <p id="Output"></p>
+    </div>
+    <div class="item" id="item3">
+        <button class="button" id="Plus" onclick="plus()">+</button>
+    </div>
+    <div class="item" id="item4">4</div>
+    <div class="item" id="item5">
+        <button class="button" id="Pointless" onclick="pointlessClicked()">Pointless</button>
+    </div>
+    <div class="item" id="item6">
+
+        <button class="button" id="PS1" onclick="PS(1)">+1 Cookie Per Second. Costs 10.</button>
+
+
+    </div>
+    <div class="item" id="item7">7</div>
+    <div class="item" id="item8">8</div>
+    <div class="item" id="item9">9</div>
+</div>
+
+
+
+
+<script>
+    $(function() {
+        init();
+    });
+</script>
+
+</body>
+</html>
