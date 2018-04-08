@@ -1,28 +1,22 @@
 function init() {
     hideall();
+    localStorage.clear();
     localStorage.setItem("pointlessClickCount", 0);
     localStorage.setItem("currentPoints", 1);
     localStorage.setItem("points", 0);
     localStorage.setItem("stage", 0);
     localStorage.setItem("CPS", 0);
-    localStorage.setItem("P1Price", 10);
-    localStorage.setItem("P10Price", 150);
-    localStorage.setItem("P50Price", 1100);
-    localStorage.setItem("P201Price", 5500);
-    localStorage.setItem("P922Price", 25000);
-    localStorage.setItem("P4321Price", 100000);
+    localStorage.setItem("P1Price", 20);
     localStorage.setItem("timePointless", 0);
     localStorage.setItem("timeAny", 0);
     localStorage.setItem("numOfBets", 0);
     setInterval(updatePoints,1000);
 }
 
-function cheat(){
-    localStorage.setItem("points", 100000000);
+function cheat(){ localStorage.setItem("points", 100000000);
 }
 
-function cheatAgain(){
-    localStorage.setItem("numOfBets", 24);
+function cheatAgain(){ localStorage.setItem("numOfBets", 24);
 }
 
 function pointlessClicked(){
@@ -187,7 +181,7 @@ function PS(value){
     localStorage.setItem("timeAny", 0);
 
     if (Number(points) >= Number(price)) {
-        $('#Output').text(" ");
+        
 
         points = Number(points) - Number(price);
         price = Math.round(Number(price) * 1.1);
@@ -200,38 +194,35 @@ function PS(value){
 
         $('#Points').text("Points: " + points);
         $('#PS'+value).text("+" + value + " Cookie Per Second. Costs " + price +".");
+        $('#Output').text("New Points Per Second is " + cps);
     } else {
         $('#Output').text("You can't afford that. Stop trying.");
     }
 
-    if (Number(value) === 1) {
-        if (price >= 25) {
-            $('#PS10').show();
+    if(Number(price) > 2.6*value*20){
+    /*Append a button
+    --2.6*value*20 = price after 10 purchases
+    --change colour values for scaling
+    */
+
+        var newvalue = Number(value) * 10;
+        if (localStorage.getItem("P" + newvalue + "Price") == null) {
+
+            var newprice = newvalue*20;
+
+            var but = "<button class=\"button cpsBut\" id=\"PS" + newvalue + "\" onclick=\"PS(" 
+                    + newvalue + ")\">+" + newvalue + " Cookie Per Second. Costs " 
+                    +newprice + ".</button>";
+
+            $('#item6').append(but);
+            localStorage.setItem("P" + newvalue + "Price", newprice);
+
         }
-    }
-    if (Number(value) === 10) {
-        if (price >= 389) {
-            $('#PS50').show();
-            localStorage.setItem("stage", 3);
-            localStorage.setItem("pointlessClickCount", 0);
-            $('#bet50').show();
-        }
-    }
-    if (Number(value) === 50) {
-        if (price >= 2852) {
-            $('#PS201').show();
-        }
-    }
-    if (Number(value) === 201) {
-        if (price >= 14266) {
-            $('#PS922').show();
-        }
-    }
-    if (Number(value) === 922) {
-        if (price >= 64844) {
-            $('#PS4321').show();
-        }
-    }
+        
+    }  
+      
+
+    localStorage.setItem("stage", 3);
 }
 
 function plus(){
@@ -255,7 +246,6 @@ function away(){
     localStorage.setItem("timePointless", 0);
 
     $('#Output').text("Good to see you're back, mate. Nice piss?");
-
 }
 
 function updatePoints(){
@@ -303,11 +293,6 @@ function hideall(){
     $('#Points').hide();
     $('#Plus').hide();
     $('#PS1').hide();
-    $('#PS10').hide();
-    $('#PS50').hide();
-    $('#PS201').hide();
-    $('#PS922').hide();
-    $('#PS4321').hide();
     $('#bet1').hide();
     $('#bet10').hide();
     $('#bet50').hide();
@@ -321,11 +306,6 @@ function showall(){
     $('#Points').show();
     $('#Plus').show();
     $('#PS1').show();
-    $('#PS10').show();
-    $('#PS50').show();
-    $('#PS201').show();
-    $('#PS922').show();
-    $('#PS4321').show();
     $('#bet1').show();
     $('#bet10').show();
     $('#bet50').show();
