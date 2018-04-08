@@ -172,9 +172,6 @@ function bet(value){
 
     localStorage.setItem("points", points);
     localStorage.setItem("numOfBets", Number(bets)+1);
-    $('#bet50').hide();
-    $('#bet10').hide();
-    $('#bet1').hide();
 
 }
 
@@ -255,6 +252,8 @@ function away(){
     $('#timeOut').hide();
     increaseScore(10000);
     localStorage.setItem("timeAny", 0);
+    localStorage.setItem("timePointless", 0);
+
     $('#Output').text("Good to see you're back, mate. Nice piss?");
 
 }
