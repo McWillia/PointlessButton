@@ -45,6 +45,30 @@ color: white;
 
 }
 
+#timeOut{
+    background-color: #66ccff;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+#rick{
+    background-color: #404040;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+}
+
+#colourChange{
+    background-color: rgb(0, 255, 255);
+    padding: 10px 30px;
+    font-size: 100px;
+    color: black;
+    text-align: center;
+}
+
 #Plus {
     background-color: lightgrey;
     padding: 10px 30px;
@@ -83,5 +107,24 @@ color: white;
     background-color: #6600cc;
     padding: 20px 50px 20px 50px;
     font-size: 12px;
+    color: white;
+}
+
+#bet50{
+    background-color: #ff8080;
+    padding: 15px 50px 15px 50px;
+    font-size: 15px;
+    color: white;
+}
+#bet10{
+    background-color: #ff3333;
+    padding: 15px 50px 15px 50px;
+    font-size: 15px;
+    color: white;
+}
+#bet1{
+    background-color: #e60000;
+    padding: 15px 50px 15px 50px;
+    font-size: 15px;
     color: white;
 }
